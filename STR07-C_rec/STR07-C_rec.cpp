@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 
+// Function that constructes an error message and displays it
+// This helps to follow recommendation STR07-C as it uses the bound checking interfaces strcpy_s and strcat_s that are much safer than the standard strcpy and strcat
 void complain(const char *msg)
 {
     errno_t err;
