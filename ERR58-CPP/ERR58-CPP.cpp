@@ -1,29 +1,15 @@
 #include <iostream>
-#include <stdexcept>
+#include <string>
 
-struct S
-{
-    S() noexcept(false)
-    {
-        // Simulate an exception during construction
-        throw std::runtime_error("Exception during construction");
-    }
-};
+// This ensures that we are following rule ERR58-CPP as we are creating a global string like this as opposed to std::string which will result no exceptions during startup or termination of the program
+static const char *global = "Hello";
 
-// Declare a global object
-S globalObject;
-
+// Simple program that asks for your name and then greets you utilzing the gloabl string
 int main()
-try
 {
-    std::cout << "Main function started" << std::endl;
-
-    std::cout << "Main function continues" << std::endl;
-
+    std::cout << "Enter your name: ";
+    std::string name;
+    std::cin >> name;
+    std::cout << global << ", " << name << "!\n";
     return 0;
-}
-catch (const std::exception &ex)
-{
-    std::cerr << "Exception caught during initialization: " << ex.what() << std::endl;
-    return 1; // Handle the error gracefully or terminate the application as needed
 }
