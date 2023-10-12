@@ -13,7 +13,6 @@ void complain(const char *msg)
     err = strcpy_s(buf, sizeof(buf), prefix);
     if (err != 0)
     {
-        /* Handle error */
         std::cerr << "Error in strcpy_s: " << err << std::endl;
         return;
     }
@@ -21,7 +20,6 @@ void complain(const char *msg)
     err = strcat_s(buf, sizeof(buf), msg);
     if (err != 0)
     {
-        /* Handle error */
         std::cerr << "Error in strcat_s: " << err << std::endl;
         return;
     }
@@ -29,7 +27,6 @@ void complain(const char *msg)
     err = strcat_s(buf, sizeof(buf), suffix);
     if (err != 0)
     {
-        /* Handle error */
         std::cerr << "Error in strcat_s: " << err << std::endl;
         return;
     }
